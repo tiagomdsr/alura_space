@@ -1,8 +1,9 @@
 {% extends 'shared/base.html' %}
 {% load static %}
 {% block content %}
+
             <section class="galeria" style="margin-left: 5em">
-                <form action="{% url 'login' %}" method="POST">
+                <form action="{% url 'nova_imagem' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row">
                         {% for field in form.visible_fields %}
@@ -11,12 +12,14 @@
                             {{ field }}
                         </div>
                         {% endfor %}
-                        <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
-                            <button class="btn btn-success col-12" style="padding: top 5px;" type="submit">Logar</button>
-                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success col-12" style="padding: top 5px;">Cadastrar fotografia</button>
                     </div>
                 </form>
             </section>
         </main>
     </div>
+</body>
+
 {% endblock %}
